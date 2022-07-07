@@ -15,7 +15,7 @@ const App = () => {
 	const name = 'Minwoo'
 	const age = 24
 	
-	console.log('hello from component')
+	console.log('hello from component!!')
 
 	return (
 	<div>
