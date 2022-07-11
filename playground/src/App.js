@@ -16,6 +16,7 @@ const App = () => {
 	const age = 24
 	
 	console.log('hello from component!!')
+	
 
 	return (
 	<div>
