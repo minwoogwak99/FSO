@@ -1,11 +1,31 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 import Note from './components/Note'
 
 
-const App = (props) => {
-	const [notes, setNote] = useState(props.notes)
+const App = () => {
+	const [notes, setNote] = useState([])
 	const [newNote, setNewNote] = useState('note...')
 	const [showAll, setShowAll] = useState(true)
+
+	const hook = () => {
+		console.log('effect')
+		axios
+			.get('https://api.jsonbin.io/v3/b/62d808fe481da340790ab77d', {
+				headers: {
+					'X-Master-Key': '$2b$10$rTC3MbJSTbfjPVLvmZ5lNeFRU9zXSBIo82EFiPMUuMyrwBmXC1xN.',
+					'X-Key-Name': 'FSO'
+				}
+			})
+			.then(response => {
+				console.log('promise fulfilled')
+				setNote(response.data.record.notes)
+			})
+	}
+
+	useEffect(hook, [])
+
+	console.log('render', notes.length, 'notes')
 
 	const addNote = (event) => {
 		event.preventDefault();

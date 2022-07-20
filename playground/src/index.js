@@ -1,15 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import axios from 'axios'
-
 import App from './App'
 
-const promise = axios.get('https://cors-anywhere.herokuapp.com/https://www.naver.com/')
-console.log(promise)
-
-const promise2 = axios.get('http://localhost:3001/foobar')
-console.log(promise2)
 
 const notes = [
   {
@@ -32,6 +25,4 @@ const notes = [
   }
 ]
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <App notes={notes} />
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
